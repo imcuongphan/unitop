@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar Toggle Responsive</title>
+</head>
+<body>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #wrapper{
+            background-color: #130f40;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #navbar-toggle{
+            width: 48px;
+            height: 48px;
+            background: #0097e6;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.25s ease-in-out;
+        }
+        #navbar-toggle::before{
+            content: "";
+            width: 28px;
+            height: 2px;
+            background-color: #fff;
+            position: absolute;
+            transform: translateY(-6px);
+            transition: 0.25s ease-in-out;
+        }
+        #navbar-toggle::after{
+            content: "";
+            width: 28px;
+            height: 2px;
+            background-color: #fff;
+            position: absolute;
+            transform: translateY(6px);
+            transition: 0.25s ease-in-out;
+        }
+        #navbar-toggle.open{
+            background: #eb4d4b;
+        }
+        #navbar-toggle.open::before{
+            transform: rotate(45deg);
+        }
+        #navbar-toggle.open::after{
+            transform: rotate(-45deg);
+        }
+
+    </style>
+    <div id="wrapper">
+        <div id="navbar-toggle"></div>
+    </div>
+
+    <script>
+        var navbar_toggle = document.getElementById("navbar-toggle");
+        navbar_toggle.onclick = function(){
+            navbar_toggle.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
